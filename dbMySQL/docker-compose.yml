@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  mysql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mysql
+    restart: always
+    ports: 
+      - 12306:3306
+    environment: 
+      MYSQL_ROOT_PASSWORD: "mysqlmelitest"
+      MYSQL_DATABASE: "DB_PROCESS_ITEMS"
+      MYSQL_USER: "userprocessfiledb"
+      MYSQL_PASSWORD: "mysqlmelitest"
+    volumes:
+      - ./schemas:/var/lib/mysql:rw
+    networks:
+      mysql_network:
+        aliases: 
+          - mysql_host
+volumes:
+  schemas: {}
+networks:
+  mysql_network:
+    name: mysql_net
+    driver: bridge
