@@ -4,10 +4,15 @@ Implementacion del ejecicio de test tecnico de procesamiento de archivos
 
 ## Installation Depedencias
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
 ```bash
 $ pip install -r requirements.txt
+```
+
+En el caso de quere ejecutar todo el contenedor tanto del servicio como la db mysql ejecutar el siguiente comando
+
+```bash
+$ docker-compose up
 ```
 
 ## Usage
