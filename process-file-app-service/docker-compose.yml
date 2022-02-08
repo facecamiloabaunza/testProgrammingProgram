@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  backend:
+    container_name: flask-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 7000:4000
+    volumes:
+      - .:/app  
+    depends_on:
+      - db
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    environment: 
+      MYSQL_ROOT_PASSWORD: "mysqlmelitest"
+      MYSQL_DATABASE: "DB_PROCESS_ITEMS"
+      MYSQL_USER: "userprocessfiledb"
+      MYSQL_PASSWORD: "mysqlmelitest"
+    volumes:
+      - .dbdata:/var/lib/mysql:rw
+    ports: 
+      - 12306:3306

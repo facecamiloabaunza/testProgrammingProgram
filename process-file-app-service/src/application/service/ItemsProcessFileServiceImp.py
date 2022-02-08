@@ -201,7 +201,6 @@ class ItemsProcessFileServiceImp (IItemsProcessFileService):
 
             for categorySite  in result_categories_items_shared_memory:
                 if categorySite.id==item.itemSite:
-                    print("Eliminando Categoria",categorySite.id)
                     result_categories_items_shared_memory.remove(categorySite)
 
             result_categories_items_shared_memory.append(site)

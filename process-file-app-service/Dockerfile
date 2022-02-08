@@ -5,8 +5,10 @@ RUN apk add --no-cache python3-dev \
 
 WORKDIR /app
 
-COPY . /app
+COPY requirements.txt /app/requirements.txt
 
 RUN pip3 --no-cache-dir install -r requirements.txt
 
-CMD ["python3","main.py"]
+COPY . /app
+
+CMD python3 main.py
